@@ -1,0 +1,26 @@
+# Node modules
+node_modules/
+
+# Database connection file
+db.js
+
+# Password hashing script
+hashPassword.js
+
+# Logs
+logs/
+*.log
+
+# Build output
+dist/
+
+# Environment variables
+.env
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.vscode/
+.idea/
