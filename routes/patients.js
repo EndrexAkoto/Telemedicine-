@@ -77,6 +77,40 @@ router.post('/register', async (req, res) => {
   });
 });
 
+// View Patient by ID
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+  pool.query(`SELECT * FROM Patients WHERE id = ?`, [id], (err, results) => {
+    if (err) return res.status(500).json({ error: 'Database error' });
+    if (results.length === 0) return res.status(404).json({ error: 'Patient not found' });
+    res.json(results[0]);
+  });
+});
+
+// Update Patient
+router.put('/:id', async (req, res) => {
+  const { id } = req.params;
+  const { first_name, last_name, email, phone, date_of_birth, gender, address } = req.body;
+
+  pool.query(`UPDATE Patients SET first_name = ?, last_name = ?, email = ?, phone = ?, date_of_birth = ?, gender = ?, address = ? WHERE id = ?`,
+    [first_name, last_name, email, phone, date_of_birth, gender, address, id],
+    (err, results) => {
+      if (err) return res.status(500).json({ error: 'Database error' });
+      if (results.affectedRows === 0) return res.status(404).json({ error: 'Patient not found' });
+      res.json({ message: 'Patient updated successfully' });
+    }
+  );
+});
+
+// Delete Patient
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  pool.query(`DELETE FROM Patients WHERE id = ?`, [id], (err, results) => {
+    if (err) return res.status(500).json({ error: 'Database error' });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Patient not found' });
+    res.json({ message: 'Patient deleted successfully' });
+  });
+});
 
 // Logout Patient
 router.post('/logout', (req, res) => {

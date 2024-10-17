@@ -1,8 +1,10 @@
-// app.js
 const express = require('express')
 const session = require('express-session')
 const pool = require('./db') // Your DB pool file
 const patientsRouter = require('./routes/patients') // Import patients routes
+const doctorsRouter = require('./routes/doctors') // Import doctors routes
+const adminRouter = require('./routes/admin') // Import admin routes
+const appointmentRouter = require('./routes/appointment') // Import appointments routes if separated
 
 const app = express()
 
@@ -24,6 +26,15 @@ app.use((req, res, next) => {
 // Use patients routes
 app.use('/patients', patientsRouter)
 
+// Use doctors routes
+app.use('/doctors', doctorsRouter)
+
+// Use admin routes
+app.use('/admin', adminRouter) // Add this line to use admin routes
+
+// Use appointments routes
+app.use('/appointment', appointmentRouter) // Add this line for appointments if separated
+
 // Test the MySQL connection
 pool.getConnection((err, connection) => {
   if (err) {
@@ -34,7 +45,7 @@ pool.getConnection((err, connection) => {
   }
 })
 
-// Route to get all patients
+// Route to get all patients (for testing purposes)
 app.get('/patients', (req, res) => {
   pool.query('SELECT * FROM Patients', (err, results) => {
     if (err) {
