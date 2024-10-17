@@ -24,3 +24,6 @@ Thumbs.db
 # IDE specific files
 .vscode/
 .idea/
+
+# Build files
+cookies.txt
