@@ -1,21 +1,23 @@
 const express = require('express')
 const session = require('express-session')
-const pool = require('./db') // Your DB pool file
+const pool = require('./db') // Import your DB pool
 const patientsRouter = require('./routes/patients') // Import patients routes
 const doctorsRouter = require('./routes/doctors') // Import doctors routes
 const adminRouter = require('./routes/admin') // Import admin routes
-const appointmentRouter = require('./routes/appointment') // Import appointments routes if separated
+const appointmentRouter = require('./routes/appointment') // Import appointments routes
+const authRouter = require('./routes/auth') // Import authentication routes
 
 const app = express()
 
 // Set up session management
 app.use(session({
-  secret: 'your-secret-key',  // Replace with a secure key
+  secret: 'your-secret-key', // Replace with a secure key
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
+  cookie: { secure: false } // Set to true if using HTTPS
 }))
 
-app.use(express.json())  // To parse JSON request bodies
+app.use(express.json()) // To parse JSON request bodies
 
 // Log incoming requests
 app.use((req, res, next) => {
@@ -23,17 +25,12 @@ app.use((req, res, next) => {
   next()
 })
 
-// Use patients routes
+// Use routes
 app.use('/patients', patientsRouter)
-
-// Use doctors routes
 app.use('/doctors', doctorsRouter)
-
-// Use admin routes
-app.use('/admin', adminRouter) // Add this line to use admin routes
-
-// Use appointments routes
-app.use('/appointment', appointmentRouter) // Add this line for appointments if separated
+app.use('/admin', adminRouter) // Admin routes
+app.use('/appointment', appointmentRouter) // Appointments routes
+app.use('/auth', authRouter) // Authentication routes
 
 // Test the MySQL connection
 pool.getConnection((err, connection) => {
@@ -41,7 +38,7 @@ pool.getConnection((err, connection) => {
     console.error('Error connecting to the database:', err.message)
   } else {
     console.log('Connected to the MySQL database')
-    connection.release()  // Release the connection back to the pool
+    connection.release() // Release the connection back to the pool
   }
 })
 
@@ -59,6 +56,12 @@ app.get('/patients', (req, res) => {
 // Catch-all for unhandled routes
 app.use((req, res) => {
   res.status(404).json({ error: 'Not Found' })
+})
+
+// Global error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
 })
 
 // Start the server

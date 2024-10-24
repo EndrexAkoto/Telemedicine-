@@ -1,0 +1,141 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.homepage-header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.logo {
+  font-size: 1.8em; /* Adjusted logo size */
+  font-weight: bold;
+  letter-spacing: 2px; /* Added spacing for a premium look */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* More spacing between menu items */
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1em; /* Slightly larger font for nav links */
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffdd57; /* Highlight on hover */
+}
+
+.auth-buttons .login-btn,
+.auth-buttons .signup-btn {
+  background-color: white;
+  color: #007bff;
+  padding: 10px 25px; /* Slightly larger padding */
+  text-decoration: none;
+  margin-left: 10px;
+  border-radius: 8px; /* More rounded corners */
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.auth-buttons .login-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.auth-buttons .signup-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.auth-buttons .signup-btn:hover {
+  background-color: #218838;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 120px 20px;
+  background-color: #f0f8ff; /* Light background for contrast */
+}
+
+.hero-section h1 {
+  font-size: 3.5em; /* Larger, bolder header */
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.hero-section p {
+  font-size: 1.3em;
+  margin-bottom: 40px;
+}
+
+.appointment-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 15px 35px; /* Larger padding for emphasis */
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.appointment-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.about-section, .services-section, .doctors-section {
+  padding: 80px 20px; /* More padding for spacious feel */
+  text-align: center;
+}
+
+.about-section h2, .services-section h2, .doctors-section h2 {
+  font-size: 2.8em;
+  margin-bottom: 30px;
+  color: #007bff;
+}
+
+.services-grid, .doctors-grid {
+  display: flex;
+  justify-content: center;
+  gap: 50px; /* More gap for visual separation */
+}
+
+.service-card, .doctor-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover, .doctor-card:hover {
+  transform: translateY(-10px); /* Lift effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 1.1em; /* Slightly larger footer text */
+}

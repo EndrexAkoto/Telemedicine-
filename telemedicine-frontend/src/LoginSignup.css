@@ -1,0 +1,72 @@
+/* Apply styles to both login and signup forms */
+
+.container {
+    width: 100%;
+    max-width: 200px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align form content */
+}
+
+label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #1b0bf8;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding: 8px; /* Slightly larger padding */
+    margin-bottom: 10px; /* Space between inputs */
+    border: 1px solid #c408ba;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%; /* Adjusted to full width of the container */
+    max-width: 300px; /* Set a maximum width */
+    box-sizing: border-box;
+}
+
+button {
+    padding: 5px 10px; /* Reduced padding for a smaller button */
+    width: auto; /* Button size auto, based on content */
+    background-color: #2508ccfb;
+    border: none;
+    color: white;
+    font-size: 14px; /* Reduced font size */
+    border-radius: 25px; /* Smaller button with rounder edges */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0px; /* Add some space between inputs and button */
+}
+
+button:hover {
+    background-color: #c710ae;
+}
+
+a {
+    text-decoration: none;
+    color: #e2b00b;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}

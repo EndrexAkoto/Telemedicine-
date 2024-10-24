@@ -194,4 +194,54 @@ router.get('/patients', (req, res) => {
   });
 });
 
+// New Features
+
+// Lab Test Requests
+router.post('/lab_tests/request', (req, res) => {
+  const { patient_id, test_type, doctor_id } = req.body;
+
+  pool.query(
+    'INSERT INTO lab_tests (patient_id, test_type, doctor_id) VALUES (?, ?, ?)',
+    [patient_id, test_type, doctor_id],
+    (err, results) => {
+      if (err) return res.status(500).json({ error: 'Error requesting lab test' });
+      res.json({ message: 'Lab test requested successfully' });
+    }
+  );
+});
+
+// Get Lab Test Results for a Patient
+router.get('/lab_tests/:patient_id', (req, res) => {
+  const { patient_id } = req.params;
+
+  pool.query('SELECT * FROM lab_results WHERE patient_id = ?', [patient_id], (err, results) => {
+    if (err) return res.status(500).json({ error: 'Error retrieving lab results' });
+    res.json(results);
+  });
+});
+
+// Submit Review
+router.post('/reviews/submit', (req, res) => {
+  const { patient_id, doctor_id, review, rating } = req.body;
+
+  pool.query(
+    'INSERT INTO reviews (patient_id, doctor_id, review, rating) VALUES (?, ?, ?, ?)',
+    [patient_id, doctor_id, review, rating],
+    (err, results) => {
+      if (err) return res.status(500).json({ error: 'Error submitting review' });
+      res.json({ message: 'Review submitted successfully' });
+    }
+  );
+});
+
+// Get Reviews for a Doctor
+router.get('/reviews/:doctor_id', (req, res) => {
+  const { doctor_id } = req.params;
+
+  pool.query('SELECT * FROM reviews WHERE doctor_id = ?', [doctor_id], (err, results) => {
+    if (err) return res.status(500).json({ error: 'Error retrieving reviews' });
+    res.json(results);
+  });
+});
+
 module.exports = router;
