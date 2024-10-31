@@ -1,12 +1,16 @@
+// HomePage.js
 import React, { useState, useEffect } from 'react'
-import './HomePage.css'  // Custom CSS
+import { Link } from 'react-router-dom'  // Link component from react-router-dom
+import './HomePage.css'                  // Custom CSS
+import './Login'
+import './Signup'                        // Import Signup
 
 const HomePage = () => {
   const [doctors, setDoctors] = useState([])
 
   useEffect(() => {
     // Fetch doctors from backend API
-    fetch('/api/doctors') // Replace with your API endpoint
+    fetch('/api/doctors')
       .then(res => res.json())
       .then(data => setDoctors(data))
       .catch(err => console.error(err))
@@ -25,15 +29,15 @@ const HomePage = () => {
             <li><a href="#contact">Contact</a></li>
           </ul>
           <div className="auth-buttons">
-            <a href="/login" className="login-btn">Login</a>
-            <a href="/signup" className="signup-btn">Sign Up</a>
+            <Link to="/login" className="login-btn">Login</Link>      {/* Updated to Link */}
+            <Link to="/signup" className="signup-btn">Sign Up</Link>  {/* Updated to Link */}
           </div>
         </nav>
 
         <div className="hero-section">
           <h1>Your Health, Our Care</h1>
           <p>Access quality healthcare from the comfort of your home.</p>
-          <a href="/appointment" className="appointment-btn">Book an Appointment</a>
+          <Link to="/appointment" className="appointment-btn">Book an Appointment</Link>
         </div>
       </header>
 

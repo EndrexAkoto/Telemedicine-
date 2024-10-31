@@ -6,6 +6,7 @@ const doctorsRouter = require('./routes/doctors') // Import doctors routes
 const adminRouter = require('./routes/admin') // Import admin routes
 const appointmentRouter = require('./routes/appointment') // Import appointments routes
 const authRouter = require('./routes/auth') // Import authentication routes
+const path = require('path') // Required for serving static files
 
 const app = express()
 
@@ -25,6 +26,9 @@ app.use((req, res, next) => {
   next()
 })
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build'))) // Adjust this path based on where your React build folder is
+
 // Use routes
 app.use('/patients', patientsRouter)
 app.use('/doctors', doctorsRouter)
@@ -42,20 +46,9 @@ pool.getConnection((err, connection) => {
   }
 })
 
-// Route to get all patients (for testing purposes)
-app.get('/patients', (req, res) => {
-  pool.query('SELECT * FROM Patients', (err, results) => {
-    if (err) {
-      console.error('Error fetching patients:', err)
-      return res.status(500).json({ error: 'Database error' })
-    }
-    res.status(200).json(results)
-  })
-})
-
-// Catch-all for unhandled routes
-app.use((req, res) => {
-  res.status(404).json({ error: 'Not Found' })
+// Catch-all route to serve the React app for any unknown route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build/index.html')) // Adjust this path based on your setup
 })
 
 // Global error handling middleware
