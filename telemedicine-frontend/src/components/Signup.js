@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../LoginSignup.css';  // Correct path since the CSS is in the src folder
+import './LoginSignup.css';  // Correct path since the CSS is in the src folder
 
 function Signup() {
     const [firstName, setFirstName] = useState(''); // New state for first name

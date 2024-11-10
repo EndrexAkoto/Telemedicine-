@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'  // Link component from react-router-dom
 import './HomePage.css'                  // Custom CSS
-import './Login'
-import './Signup'                        // Import Signup
+import './components/Login'
+import './components/Signup.js'                        // Import Signup
 
 const HomePage = () => {
   const [doctors, setDoctors] = useState([])
@@ -53,7 +53,7 @@ const HomePage = () => {
         <div className="services-grid">
           <div className="service-card">
             <h3>Online Consultation</h3>
-            <p>Speak to experienced doctors via secure video calls.</p>
+            <p>Speak to experienced doctors via secure Phone Call and Video calls.</p>
           </div>
           <div className="service-card">
             <h3>Health Monitoring</h3>
@@ -78,18 +78,32 @@ const HomePage = () => {
       </section>
 
       {/* Doctors Section */}
-      <section className="doctors-section" id="doctors">
+       <section className="doctors-section" id="doctors">
         <h2>Meet Our Doctors</h2>
         <div className="doctors-grid">
-          {doctors.map((doctor) => (
-            <div className="doctor-card" key={doctor.id}>
-              <h3>{doctor.first_name} {doctor.last_name}</h3>
-              <p>{doctor.specialization}</p>
-              <a href={`/reviews/${doctor.id}`} className="review-btn">View Reviews</a>
-            </div>
-          ))}
+          <div className="doctor-card">
+            <h3>Dr. John Smith</h3>
+            <p>Cardiologist</p>
+            <a href="/reviews/1" className="review-btn">View Reviews</a>
+          </div>
+          <div className="doctor-card">
+            <h3>Dr. Sarah Lee</h3>
+            <p>Dermatologist</p>
+            <a href="/reviews/2" className="review-btn">View Reviews</a>
+          </div>
+          <div className="doctor-card">
+            <h3>Dr. Mark Allen</h3>
+            <p>Pediatrician</p>
+            <a href="/reviews/3" className="review-btn">View Reviews</a>
+          </div>
+          <div className="doctor-card">
+            <h3>Dr. Emily White</h3>
+            <p>General Practitioner</p>
+            <a href="/reviews/4" className="review-btn">View Reviews</a>
+          </div>
         </div>
       </section>
+
 
       {/* Footer Section */}
       <footer className="footer">
