@@ -1,10 +1,9 @@
 // HomePage.js
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'  // Link component from react-router-dom
-import './HomePage.css'                  // Custom CSS
+import './HomePage.css'                  
 import './components/Login'
-import './components/Signup.js'                        // Import Signup
-
+import './components/Signup.js'                        
 const HomePage = () => {
   const [doctors, setDoctors] = useState([])
 
@@ -107,7 +106,7 @@ const HomePage = () => {
 
       {/* Footer Section */}
       <footer className="footer">
-        <p>© 2024 Telemedicine. All rights reserved.</p>
+        <p>© 2025 Telemedicine. All rights reserved.</p>
       </footer>
     </div>
   )
