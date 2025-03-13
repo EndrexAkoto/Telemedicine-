@@ -166,17 +166,16 @@ const HomePage = () => {
 
       {/* Footer Section */}
       <footer className="footer">
-        <div className="footer-links">
-          <Link to="#home">Home</Link>
-          <Link to="#about">About Us</Link>
-          <Link to="#services">Services</Link>
-          <Link to="#doctors">Doctors</Link>
-          <Link to="#contact">Contact</Link>
-        </div>
         <div className="social-media">
-          <a href="https://facebook.com">Facebook</a>
-          <a href="https://twitter.com">Twitter</a>
-          <a href="https://instagram.com">Instagram</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/twitter.png" alt="X" />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <img src="/images/instagram.png" alt="Instagram" />
+          </a>
         </div>
         <p>© 2025 Telemedicine. All rights reserved.</p>
       </footer>

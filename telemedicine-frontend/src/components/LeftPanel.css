@@ -1,0 +1,94 @@
+/* Left Panel Container */
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Brand Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.brand .logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #007bff;
+  margin-right: 10px;
+}
+
+.brand .logo-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Intro Text */
+.intro-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro-text h1 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.intro-text p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Features List */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-icon {
+  font-size: 20px;
+  color: #007bff;
+}
+
+.feature-text {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.footer nav ul li a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer nav ul li a:hover {
+  text-decoration: underline;
+}

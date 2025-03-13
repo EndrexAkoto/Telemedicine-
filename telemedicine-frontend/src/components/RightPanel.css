@@ -1,0 +1,116 @@
+/* Right Panel Container */
+.right-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  z-index: 1; /* Ensure it's above the background */
+}
+
+/* Login/Signup Container */
+.login-container,
+.signup-container {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.login-header,
+.signup-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-header h2,
+.signup-header h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.login-header p,
+.signup-header p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.tabs .tab {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.tabs .tab.active {
+  color: #007bff;
+  font-weight: bold; /* Highlight active tab */
+}
+
+.tabs .tab-bg {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .right-panel {
+    padding: 20px; /* Add padding on smaller screens */
+  }
+
+  .login-container,
+  .signup-container {
+    padding: 15px;
+  }
+
+  .login-header h2,
+  .signup-header h2 {
+    font-size: 20px; /* Smaller font size for smaller screens */
+  }
+
+  .login-header p,
+  .signup-header p {
+    font-size: 12px;
+  }
+
+  .tabs .tab {
+    font-size: 12px; /* Smaller font size for tabs */
+  }
+}
+
+/* Button and Link Accessibility */
+.tabs .tab:focus {
+  outline: 2px solid #007bff; /* Add focus outline for accessibility */
+  outline-offset: 2px;
+}
+
+.tabs .tab:hover {
+  color: #0056b3; /* Darker color on hover */
+}
+
+/* Ensure links and buttons are accessible */
+a, button {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+a:hover, button:hover {
+  opacity: 0.9; /* Slight fade on hover */
+}

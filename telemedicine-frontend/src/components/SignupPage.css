@@ -1,0 +1,27 @@
+/* Reuse the same styles for both pages */
+.login-page,
+.signup-page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  z-index: 1; /* Ensure it's above the background */
+}
+
+.login-container,
+.signup-container {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+}

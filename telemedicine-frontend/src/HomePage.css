@@ -139,3 +139,34 @@ body {
   padding: 30px 0;
   font-size: 1.1em; /* Slightly larger footer text */
 }
+
+/* Social Media Section */
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between icons */
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.social-media a {
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-media a:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  opacity: 0.8; /* Slightly fade on hover */
+}
+
+.social-media img {
+  width: 40px; /* Adjust size as needed */
+  height: 40px;
+  border-radius: 50%; /* Optional: Make icons circular */
+  object-fit: cover; /* Ensure images fit properly */
+  border: 2px solid transparent; /* Optional: Add border */
+  transition: border-color 0.3s ease;
+}
+
+.social-media img:hover {
+  border-color: #007bff; /* Change border color on hover */
+}
